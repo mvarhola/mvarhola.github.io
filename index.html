@@ -25,6 +25,7 @@
     height: 100%;
     position: absolute;
     transform-style: preserve-3d;
+    cursor: pointer;
   }
 
   #box figure {
@@ -36,7 +37,7 @@
 
   #box .front,
   #box .back {
-    background:#000;
+    background:rgb(49,61,79);
 
     width: 400px;
     height: 400px;
@@ -88,16 +89,15 @@
 
 
   }
-
+/*
   @keyframes spin {
   	from { transform: rotateY(0); }
   	to { transform: rotateY(360deg); }
   }
 
   #box {
-  	animation: spin 30s infinite linear;
-    animation-play-state: running;
-  }
+  	animation: spin 5s infinite linear;
+  }*/
 
   div.hidden{
     display: none;
@@ -115,7 +115,27 @@
     font-size:1.5em;
     line-height:1.1em;
     font-style: normal;
-    background:#000;
+
+  }
+
+  /* Flaired edges, by Tomas Theunissen */
+
+  hr.style-seven {
+      height: 30px;
+      border-style: solid;
+      border-color: white;
+      border-width: 1px 0 0 0;
+      border-radius: 20px;
+  }
+  hr.style-seven:before { /* Not really supposed to work, but does */
+      display: block;
+      content: "";
+      height: 30px;
+      margin-top: -31px;
+      border-style: solid;
+      border-color: white;
+      border-width: 0 0 1px 0;
+      border-radius: 20px;
   }
 
   a:link {
@@ -130,7 +150,7 @@
 
   a:hover {
     text-decoration: none;
-    color:red;
+    color:black;
   }
 
   a:active {
@@ -151,12 +171,22 @@
   crossorigin="anonymous">
   </script>
 
-  <!-- <script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script> -->
+  <script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
 
   <script>
     $(document).ready(function () {
       $('div.hidden').hide().fadeIn(1000).removeClass('hidden');
+      $('#box').transition({rotateY: '20deg'});
+
     });
+
+    $(function(){
+      $('#box').click(function(){
+        $('#box').transition({rotateY: '+=180deg'});
+      });
+    })
+
+
   //
   //   $( function() {
   //
@@ -197,7 +227,8 @@
               <li><a href="http://www.last.fm/user/m0x3">last.fm</a></li>
               <li><a href="#">log (soon)</a></li>
             </ol>
-            <hr/>
+            <br />
+            <!-- <hr class="style-seven"/> -->
             <span>Projects</span>
             <ol>
               <li><a href="http://arctic.ns22.ru">arctic.ns22.ru</a></li>
