@@ -1,256 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <title>Markiyan Varhola</title>
+	<title>Markiyan Varhola</title>
 
-  <style>
+	<style>
 
-  html,body{
-    height:100%;
-    margin:0 auto;
-    font-family:baskerville, serif;
-    color:#FFF;
-  }
+		@font-face {
+		   font-family: "Decima Mono"; 
+		   src: url('DecimaMonoPro.otf');
+		} 
 
-  .container {
-    width: 400px;
-    height: 400px;
-    position: absolute;;
-    perspective: 1000px;
-  }
+		.left-nav {
+			padding:20px;
+			min-width:500px;
+			font-family: "Decima Mono";
+			letter-spacing: -0.05em;
+			font-size: 0.9em;
+			}
+		.right-nav{
+			position: relative;
+			perspective: 1000px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 250px;
 
-  #box {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transform-style: preserve-3d;
-    cursor: pointer;
-  }
+		}
+		   #toc {
+		       list-style: none;
+		       margin-bottom: 50px;
+		       padding-left: 0;
 
-  #box figure {
-    margin: 0;
-    display: block;
-    position: absolute;
-    box-shadow: inset 0 0 2px #000;
-  }
+		   }
+		   #toc ul{
+		   	margin:0px;
+		   }
+		   #toc li {
+		       background: url(http://5thirtyone.com/sandbox/share/toc/dot.gif) repeat-x bottom left;
+		       overflow: hidden;
+		       padding-bottom: 2px;
+		   }
+		   #toc li.nobg {
+		       background: none;
+		       overflow: hidden;
+		       padding-bottom: 2px;
+		   }
+		   #toc a,
+		   #toc span {
+		       display: inline-block;
+		       background: #fff;
+		       position: relative;
+		       bottom: -6px;
+		   }
+		   #toc a {
+		       float: right;
+		       padding: 0 0 2px 2px;
+		       color:black;
+		       text-decoration: none;
+		   }
+		   #toc a:hover {
+		       background:rgb(197,210,0);
+		   }
+		   #toc span {
+		       float: left;
+		       padding: 0 2px 3px 0;
+		   }
+		   .parent {
+		       display: flex;
+		       align-items: center;
+		       flex-wrap:wrap;
+		   }
+		   .parent > div {
+		       flex: 1;
+		   }
+		   .box-wrapper {
+		     perspective: 800px;
+		     perspective-origin: 50% 100px;
+		   }
 
-  #box .front,
-  #box .back {
-    background:rgb(49,61,79);
+		   .box-faces {
+		     position: relative;
+		     width: 200px;
+		     transform-style: preserve-3d;
+		   }
+		   .box-faces p {
+		     padding: 40px 0;
+		   }
+		   .box-face {
+		     outline: 1px solid #000;
+		     position: absolute;
+		     width: 200px;
+		     height: 200px;
+		     opacity: 0.98;
+		   }
 
-    width: 400px;
-    height: 400px;
-  }
-  #box .front{
-    background:url("self.jpg");
-    background-size: cover;
-
-  }
-
-  #box .right,
-  #box .left {
-    background:#e2e2e2;
-    width: 20px;
-    height: 400px;
-    left: 190px;
-  }
-
-  #box .top,
-  #box .bottom {
-    width: 400px;
-    height: 20px;
-    top: 190px;
-  }
-
-  #box .front  { transform: rotateY(   0deg ) translateZ(  10px ); }
-  #box .back   { transform: rotateX( 180deg ) rotate(180deg) translateZ(  10px ); }
-  #box .right  { transform: rotateY(  90deg ) translateZ( 200px ); }
-  #box .left   { transform: rotateY( -90deg ) translateZ( 200px ); }
-  #box .top    { transform: rotateX(  90deg ) translateZ( 200px ); }
-  #box .bottom { transform: rotateX( -90deg ) translateZ( 200px ); }
-
-  #pagewrap{
-    width:100%;
-    height:100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  #center{
-
-    width:400px;
-    height:400px;
-    margin:0;
-    padding:0;
-
-
-
-  }
-/*
-  @keyframes spin {
-  	from { transform: rotateY(0); }
-  	to { transform: rotateY(360deg); }
-  }
-
-  #box {
-  	animation: spin 5s infinite linear;
-  }*/
-
-  div.hidden{
-    display: none;
-  }
-
-  #buttons{
-    margin-top:100px;
-    width:400px;
-    background:green;
-    position:relative;
-  }
-
-  .cover{
-    padding:10px;
-    font-size:1.5em;
-    line-height:1.1em;
-    font-style: normal;
-
-  }
-
-  /* Flaired edges, by Tomas Theunissen */
-
-  hr.style-seven {
-      height: 30px;
-      border-style: solid;
-      border-color: white;
-      border-width: 1px 0 0 0;
-      border-radius: 20px;
-  }
-  hr.style-seven:before { /* Not really supposed to work, but does */
-      display: block;
-      content: "";
-      height: 30px;
-      margin-top: -31px;
-      border-style: solid;
-      border-color: white;
-      border-width: 0 0 1px 0;
-      border-radius: 20px;
-  }
-
-  a:link {
-    color:white;
-    text-decoration: none;
-  }
-
-  a:visited {
-    color:white;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: none;
-    color:black;
-  }
-
-  a:active {
-    text-decoration: none;
-  }
-
-  </style>
-
-  <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous">
-  </script>
-
-  <script
-  src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous">
-  </script>
-
-  <script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
-
-  <script>
-    $(document).ready(function () {
-      $('div.hidden').hide().fadeIn(1000).removeClass('hidden');
-      $('#box').transition({rotateY: '20deg'});
-
-    });
-
-    $(function(){
-      $('#box').click(function(){
-        $('#box').transition({rotateY: '+=180deg'});
-      });
-    })
+		   .box-face--is-back {
+		     transform: translateZ(-100px) rotateY(180deg);
+		     background-color: #fff;
+		   }
+		   .box-face--is-right {
+		     transform: rotateY(-270deg) translateX(100px);
+		     transform-origin: top right;
+		     background-color: #fff;
+		   }
+		   .box-face--is-left {
+		     transform: rotateY(270deg) translateX(-100px);
+		     transform-origin: center left;
+		     background-color: #fff;
+		   }
+		   .box-face--is-top {
+		     transform: rotateX(-90deg) translateY(-100px);
+		     transform-origin: top center;
+		     background-color: #fff;
+		   }
+		   .box-face--is-bottom {
+		     transform: rotateX(90deg) translateY(100px);
+		     transform-origin: bottom center;
+		     background-color: #fff;
+		   }
+		   .box-face--is-front {
+		     transform: translateZ(100px);
+		     background-color: #fff;
+		   }
 
 
-  //
-  //   $( function() {
-  //
-  //
-  //     $( ".button-front" ).click(function(){
-  //       $("#box").css({"animation-play-state": "paused"});
-  //       $("#box").stop();
-  //       $("#box").transition({
-  //         rotateY:'0deg'
-  //       });
-  //       // $("#box").css({"animation-play-state": "running"});
-  //
-  //     });
-  //
-  //     $( ".button-back" ).click(function(){
-  //       $("#box").transition({rotateY:'180deg'});
-  //     });
-  //
-  // });
+		   @keyframes spin {
+		     from { transform: rotateY(0); }
+		     to { transform: rotateY(360deg); }
+		   }
 
-  </script>
+		   .box-faces {
+		     animation: spin 15s infinite linear;
+		   }
+
+
+
+	</style>
+	
+	<script
+	  src="https://code.jquery.com/jquery-3.1.1.min.js"
+	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	  crossorigin="anonymous">
+	</script>
+
+	<script
+	src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+	crossorigin="anonymous">
+	</script>
+
+	<script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
+
+	<script>
+	  function startTime() {
+	      var today = new Date();
+	      var h = today.getHours();
+	      var m = today.getMinutes();
+	      var s = today.getSeconds();
+	      m = checkTime(m);
+	      s = checkTime(s);
+	      document.getElementById('time').innerHTML =
+	      h + ":" + m + ":" + s;
+	      var t = setTimeout(startTime, 500);
+	  }
+	  function checkTime(i) {
+	      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+	      return i;
+	  }
+
+	  $.get("http://ipinfo.io", function(response) {
+	      document.getElementById('ip').innerHTML = response.ip;
+	  }, "jsonp");
+
+	</script>
 
 </head>
+<body onload="startTime()">
+	<div class="parent">  
+		<div class="left-nav">
+	  		<ul id="toc">
+	  			<li class="nobg"><span>MARKIYAN</span></li>		
+	  			<li class="nobg"><span>VARHOLA</span></li>		
+	  			<li><span>email</span> <a href="mailto:mvarhola@hawk.iit.edu">mvarhola@hawk.iit.edu</a></li>
+	  			<li><span>github</span> <a href="http://github.com/mvarhola">mvarhola</a></li>
+	  			<li><span>last.fm</span> <a href="http://www.last.fm/user/m0x3">m0x3</a></li>
+	  			<li><span>instagram</span> <a href="https://www.instagram.com/three.six.mafia/">three.six.mafia</a></li>
+	  			<li><span>osu</span> <a href="http://osu.ppy.sh/u/marki271">marki271</a></li>
+	  			<li><span>text file</span> <a href="log.txt">log</a></li>
 
-<body>
-<div id="pagewrap">
-  <div id="center" class="hidden">
-    <section class="container">
-      <div id="box">
-        <figure class="front">
-        </figure>
-        <figure class="back">
-          <div class="cover">
 
-            <span>Self</span>
-            <ol>
-              <li><a href="https://www.instagram.com/acid.cool/">instagram</a></li>
-              <li><a href="http://www.last.fm/user/m0x3">last.fm</a></li>
-              <li><a href="#">log (soon)</a></li>
-            </ol>
-            <br />
-            <!-- <hr class="style-seven"/> -->
-            <span>Projects</span>
-            <ol>
-              <li><a href="http://arctic.ns22.ru">arctic.ns22.ru</a></li>
-              <li><a href="http://hawk.eva.hk">hawk.eva.hk</a></li>
-            </ol>
-          </div>
-        </figure>
-        <figure class="right"></figure>
-        <figure class="left"></figure>
-        <figure class="top"></figure>
-        <figure class="bottom"></figure>
-      </div>
-    </section>
-  </div>
-  <!-- <div id="buttons">
-    <a href="#" class="button-front">front</button>
-    <a href="#" class="button-play">play</button>
-    <a href="#" class="button-back">back</button>
-  </div> -->
-</div>
+	  			<li class='nobg'><span>PROJECTS</span></li>
+	  			<li><span>live automated content stream</span> <a href="http://arctic.ns22.ru">A>R>P</a></li>
+	  			<li><span>realtime/static imageboard</span> <a href="http://hawk.eva.hk">itchan</a></li>
+	  			<li><span>bootleg hip-hop tapes</span> <a href="http://sod.nfshost.com/">sod & kruss</a></li>
+	  			<li><span>live automated unsecured webcam stream</span><a href="#">TBA</a></li>
 
+	  			<li class='nobg'><span>OTHER</span></li>
+	  			<li><span>time</span> <a href="#"><div id="time"></div></a></li>
+	  			<li><span>your ip</span> <a href="#"><div id="ip"></div></a></li>
+	  			<li><span>favorite hobby</span> <a href="https://en.wikipedia.org/wiki/Drinking">hydration</a></li>
+	  			<li><span>useful command</span> <a href="#">sudo !!</a></li>
+	  			<li><span>website inspo</span> <a href="#">syro</a></li>
+	  			<li><span>my computer</span> <a href="#">Macbook Pro 13" mid-2012</a></li>
+	  		</ul>
+		</div>
+		<div class="right-nav">
+			<div class="shadow-wrapper">
+			      <div class="shadow">
+			        <div>&nbsp;</div>
+			      </div>
+			    </div>
+			<div class="box-wrapper">
+			      <div class="box-faces">
+			        <div class="box-face box-face--is-front">
+			          <p>
+			            <i class="icon-rocket icon-4x"></i>
+			          </p>
+			        </div>
+			        <div class="box-face box-face--is-back">
+			          <p>
+			            <i class="icon-rocket icon-4x"></i>
+			          </p>
+			        </div>
+			        <div class="box-face box-face--is-top">&nbsp;</div>
+			        <div class="box-face box-face--is-bottom">&nbsp;</div>
+			        <div class="box-face box-face--is-left">
+			          <p>
+			            <i class="icon-rocket icon-4x"></i>
+			          </p>
+			        </div>
+			        <div class="box-face box-face--is-right">
+			          <p>
+			            <i class="icon-rocket icon-4x"></i>
+			          </p>
+			        </div>
+
+			      </div><!-- end of .box -->
+			    </div><!-- end of .box-wrapper -->
+		</div>
+	</div>  
 
 </body>
-
 </html>
