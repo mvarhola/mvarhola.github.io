@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Markiyan Varhola</title>
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
 	<style>
+		html { 
+		  background: url(topography.png); 
+		}
 
 		@font-face {
 		   font-family: "Decima Mono"; 
@@ -13,179 +19,51 @@
 		.left-nav {
 			padding:50px;
 			min-width:500px;
-			font-family: "Decima Mono";
-			letter-spacing: -0.05em;
-			font-size: 0.9em;
-			}
-		.right-nav{
-			position: relative;
-			perspective: 1000px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin-bottom: 300px;
-
+			font-family: 'Cormorant Garamond', serif;
+			font-size: 2em;
 		}
-		   #toc {
-		       list-style: none;
-		       margin-bottom: 50px;
-		       padding-left: 0;
+		
+		.parent {
+	       display: flex;
+	       align-items: center;
+	       flex-wrap:wrap;
+	   }
 
-		   }
-		   #toc ul{
-		   	margin:0px;
-		   }
-		   #toc li {
-		       background: url(http://5thirtyone.com/sandbox/share/toc/dot.gif) repeat-x bottom left;
-		       overflow: hidden;
-		       padding-bottom: 2px;
-		   }
-		   #toc li.nobg {
-		       background: none;
-		       overflow: hidden;
-		       padding-bottom: 2px;
-		   }
-		   #toc a,
-		   #toc span {
-		       display: inline-block;
-		       background: #fff;
-		       position: relative;
-		       bottom: -6px;
-		   }
-		   #toc a {
-		       float: right;
-		       padding: 0 0 2px 2px;
-		       color:black;
-		       text-decoration: none;
-		   }
-		   #toc a:hover {
-		       background:rgb(197,210,0);
-		   }
-		   #toc span {
-		       float: left;
-		       padding: 0 2px 3px 0;
-		   }
-		   .parent {
-		       display: flex;
-		       align-items: center;
-		       flex-wrap:wrap;
-		   }
-		   .parent > div {
-		       flex: 1;
-		   }
-		   .box-wrapper {
-		     perspective: 800px;
-		     perspective-origin: 50% 100px;
-		   }
+	   .parent > div {
+	       flex: 1;
+	   }
 
-		   .box-faces {
-		     position: relative;
-		     width: 200px;
-		     transform-style: preserve-3d;
-		   }
-		   .box-faces p {
-		     padding: 40px 0;
-		   }
-		   .box-face {
-		     outline: 1px solid #000;
-		     position: absolute;
-		     width: 200px;
-		     height: 200px;
-		     opacity: 0.98;
-		   }
+	   /* unvisited link */
+	   a:link, a:visited, a:active {
+	       color: #27ae60;
+	       text-decoration: none;
+	   }
 
-		   .box-face--is-back {
-		     transform: translateZ(-100px) rotateY(180deg);
-		     background-color: #fff;
-		   }
-		   .box-face--is-right {
-		     transform: rotateY(-270deg) translateX(100px);
-		     transform-origin: top right;
-		     background-color: #fff;
-		   }
-		   .box-face--is-left {
-		     transform: rotateY(270deg) translateX(-100px);
-		     transform-origin: center left;
-		     background-color: #fff;
-		   }
-		   .box-face--is-top {
-		     transform: rotateX(-90deg) translateY(-100px);
-		     transform-origin: top center;
-		     background-color: #fff;
-		   }
-		   .box-face--is-bottom {
-		     transform: rotateX(90deg) translateY(100px);
-		     transform-origin: bottom center;
-		     background-color: #fff;
-		   }
-		   .box-face--is-front {
-		     transform: translateZ(100px);
-		     background-color: #fff;
-		   }
+	   /* mouse over link */
+	   a:hover {
+	       color: #2ecc71;
+	   }
 
-
-		   @keyframes spin {
-		     from { transform: rotateY(0); }
-		     to { transform: rotateY(360deg); }
-		   }
-
-		   .box-faces {
-		     animation: spin 15s infinite linear;
-		   }
-
-
-
+	   i{
+	   	font-size: 1em;
+	   	padding:0 .5em 0 0 ;
+	   }
 	</style>
-	
-	<script
-	  src="https://code.jquery.com/jquery-3.1.1.min.js"
-	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-	  crossorigin="anonymous">
-	</script>
-
-	<script
-	src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-	crossorigin="anonymous">
-	</script>
-
-	<script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>
-
-	<script>
-	  function startTime() {
-	      var today = new Date();
-	      var h = today.getHours();
-	      var m = today.getMinutes();
-	      var s = today.getSeconds();
-	      m = checkTime(m);
-	      s = checkTime(s);
-	      document.getElementById('time').innerHTML =
-	      h + ":" + m + ":" + s;
-	      var t = setTimeout(startTime, 500);
-	  }
-	  function checkTime(i) {
-	      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-	      return i;
-	  }
-
-	  $.get("http://ipinfo.io", function(response) {
-	      document.getElementById('ip').innerHTML = response.ip;
-	  }, "jsonp");
-
-	</script>
-
 </head>
-<body onload="startTime()">
+
+<body>
 	<div class="parent">  
 		<div class="left-nav">
-	  		<ul id="toc">
-	  			<li class="nobg"><span>MARKIYAN</span></li>		
-	  			<li class="nobg"><span>VARHOLA</span></li>		
+			<h1>Hello!</h1>
+			<p>I'm Markiyan Varhola, a Software Developer from <a href='https://en.wikipedia.org/wiki/Chicago'>Chicago</a>.</p>
+			<p>I love creating software and solving problems.</p>
+			<p>Alumni of <a href='https://web.iit.edu'>Illinois Tech</a>.</p>
+			<p>Inspired by zen, food, and sneakers.</p>
 
-	  			<li class='nobg'><span>PROJECTS</span></li>
-	  		</ul>
+			<a href="mailto:markiyan.varhola@gmail.com" title="email"><i class="fas fa-envelope"></i></a>
+			<a href="resume.pdf"><i class="fas fa-file-alt"></i></a>
+			<a href="https://github.com/mvarhola"><i class="fab fa-github-alt"></i></a>
 		</div>
 	</div>  
-
 </body>
 </html>
