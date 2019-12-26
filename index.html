@@ -2,68 +2,123 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Markiyan Varhola</title>
-	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<title>verichip.net</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/crt.css">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	<style>
-		html { 
-		  background: url(topography.png); 
-		}
-
-		@font-face {
-		   font-family: "Decima Mono"; 
-		   src: url('./DecimaMonoPro.otf');
-		} 
-
-		.left-nav {
-			padding:50px;
-			min-width:500px;
-			font-family: 'Cormorant Garamond', serif;
-			font-size: 2em;
+		body{
+			background: black;
+			font-family: monospace;
 		}
 		
-		.parent {
-	       display: flex;
-	       align-items: center;
-	       flex-wrap:wrap;
-	   }
+		img.logo {
+			width:100%;
+		}
 
-	   .parent > div {
-	       flex: 1;
-	   }
+		a{
+			color: rgb(185,241,183);
+		}
 
-	   /* unvisited link */
-	   a:link, a:visited, a:active {
-	       color: #27ae60;
-	       text-decoration: none;
-	   }
+		#links{
+			display: flex;
+			align-items: center;
+  		justify-content: center;
+		}
 
-	   /* mouse over link */
-	   a:hover {
-	       color: #2ecc71;
-	   }
+		.vertical-center {
+			min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+			min-height: 100vh; /* These two lines are counted as one :-)       */
 
-	   i{
-	   	font-size: 1em;
-	   	padding:0 .5em 0 0 ;
-	   }
+			display: flex;
+			align-items: center;
+		}
+
+		.trippy {
+			-webkit-box-shadow: 0 0 200px 0 #000000;
+			box-shadow: 0 0 200px 0 #000000;
+			transition: transform .1s;
+		}
+
+		.trippy:hover {
+			/* Standard syntax */
+			animation-name: hue;
+			animation-duration: .5s;
+			animation-timing-function: cubic-bezier();
+			animation-delay: 0s;
+			animation-iteration-count: infinite;
+			animation-play-state: running;
+		}
+
+		/* Standard syntax */
+		@keyframes hue {
+			0%   { 
+				-webkit-filter: hue-rotate(0deg);
+				transform: scale(1);
+			}
+
+			50% { 
+				transform: scale(1.1);
+			}
+
+			100% {
+				-webkit-filter: hue-rotate(360deg);
+				transform: scale(1);
+			}
+		}
 	</style>
 </head>
 
 <body>
-	<div class="parent">  
-		<div class="left-nav">
-			<h1>Hello!</h1>
-			<p>I'm Markiyan Varhola, a Software Developer from <a href='https://en.wikipedia.org/wiki/Chicago'>Chicago</a>.</p>
-			<p>I love creating software and solving problems.</p>
-			<p>Alumni of <a href='https://web.iit.edu'>Illinois Tech</a>.</p>
-			<p>Inspired by zen, food, and sneakers.</p>
-
-			<a href="mailto:markiyan.varhola@gmail.com" title="email"><i class="fas fa-envelope"></i></a>
-			<a href="resume.pdf"><i class="fas fa-file-alt"></i></a>
-			<a href="https://github.com/mvarhola"><i class="fab fa-github-alt"></i></a>
-		</div>
-	</div>  
+	<main role="main" class="vertical-center container">
+		<section class="container">
+				<img class="logo trippy" src="verichip.png">
+		<section id="links" class="container mt-5">
+			<ul class="list-inline">
+				<li class="list-inline-item">
+					<a href="mailto:markiyan.varhola@gmail.com" title="email">
+						<i class="fa fa-envelope-o"></i>
+						email
+					</a>
+				</li>
+				<li class="list-inline-item">
+						<a href="https://github.com/mvarhola" title="github">
+							<i class="fa fa-github"></i>
+							github
+						</a>
+				</li>
+				<li class="list-inline-item">
+						<a href="https://twitter.com/barkiyan" title="are.na">
+							<i class="fa fa-twitter"></i>
+							twitter
+						</a>
+				</li>
+				<li class="list-inline-item">
+						<a href="https://www.are.na/markiyan-varhola" title="are.na">
+							<i class="fa fa-asterisk"></i>
+							are.na
+						</a>
+				</li>
+				<li class="list-inline-item">
+						<a href="https://www.instagram.com/comfy.boy/" title="instagram">
+							<i class="fa fa-instagram"></i>
+							instagram
+						</a>
+				</li>
+				<li class="list-inline-item">
+						<a href="https://www.youtube.com/channel/UCjgBGlfTl5UMvtmH838x99w" title="instagram">
+							<i class="fa fa-youtube"></i>
+							youtube
+						</a>
+				</li>
+			</ul>
+		</section>
+	</section>
+	</main>
 </body>
 </html>
