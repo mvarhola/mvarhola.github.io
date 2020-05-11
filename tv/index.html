@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Comfy Channel</title>
+    <style>
+        html,
+        body {
+        height: 100%;
+        margin: 0;
+        background-image: url("5015.png");
+        background-repeat: repeat;
+        }
+        .container {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .player {
+          width: 640px;
+          height: 360px;
+        }
+        .player div {
+          display: inline-block;
+          position: relative;
+          z-index : 1;
+        }
+        .player div iframe {
+        /* border: 1px red solid;  */
+        display: block; 
+        }
+        .player div + iframe { 
+          position: absolute;
+          z-index: 0;
+          top: 97px;
+          right:115px; 
+        }
+        iframe{
+          height:160px;
+          width:290px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="player">
+        <div>
+          <div style="width: 640px; pointer-events: none;">
+              <img src="jiru_wide.png" alt="" style="width: 640px; pointer-events: none;"/>
+          </div>
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/fmn6P67iIAA?&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
