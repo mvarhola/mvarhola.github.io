@@ -26,21 +26,22 @@
           position: relative;
           z-index : 1;
         }
-        .player div iframe {
+        .player div #my-video {
         /* border: 1px red solid;  */
         display: block; 
         }
-        .player div + iframe { 
+        .player div + #my-video { 
           position: absolute;
           z-index: 0;
           top: 97px;
           right:115px; 
         }
-        iframe{
+        #my-video{
           height:160px;
           width:290px;
         }
     </style>
+    <link href="https://vjs.zencdn.net/7.7.6/video-js.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
@@ -49,9 +50,12 @@
           <div style="width: 640px; pointer-events: none;">
               <img src="jiru_wide.png" alt="" style="width: 640px; pointer-events: none;"/>
           </div>
-          <iframe width="640" height="360" src="https://www.youtube.com/embed/fmn6P67iIAA?&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <video id='my-video' class='video-js' controls autoplay preload='auto' width='640' data-setup='{}'>
+            <source src='http://34.68.241.211/hls/stream.m3u8' type='application/x-mpegURL'>
+        </video>
         </div>
       </div>
     </div>
+    <script src='https://vjs.zencdn.net/7.7.6/video.js'></script>
   </body>
 </html>
