@@ -12,11 +12,49 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	<style>
+
+		
 		body{
 			background: black;
 			font-family: monospace;
 		}
 		
+		.face-rotate {
+			animation: headRotate linear 6s;
+			animation-iteration-count: infinite;
+			transform-origin: 50% 50%;
+			-webkit-animation: headRotate linear 6s;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-transform-origin: 50% 50%;
+			-moz-animation: headRotate linear 6s;
+			-moz-animation-iteration-count: infinite;
+			-moz-transform-origin: 50% 50%;
+			-o-animation: headRotate linear 6s;
+			-o-animation-iteration-count: infinite;
+			-o-transform-origin: 50% 50%;
+			-ms-animation: headRotate linear 6s;
+			-ms-animation-iteration-count: infinite;
+			-ms-transform-origin: 50% 50%;
+		}
+
+		@keyframes headRotate {
+			0% {
+				transform: rotate(0deg);
+			}
+			25% {
+				transform: rotate(8deg);
+			}
+			50% {
+				transform: rotate(0deg);
+			}
+			75% {
+				transform: rotate(-8deg);
+			}
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
 		img.logo {
 			width:100%;
 		}
@@ -38,13 +76,14 @@
 			display: flex;
 			align-items: center;
 		}
+		
 	</style>
 </head>
 
 <body>
 	<main role="main" class="vertical-center container">
 		<section class="container">
-				<img class="logo" src="verichip.png">
+				<img class="logo face-rotate" src="verichip.png">
 		<section id="links" class="container mt-5">
 			<ul class="list-inline">
 				<li class="list-inline-item">
@@ -57,24 +96,6 @@
 						<a href="https://github.com/mvarhola" title="github">
 							<i class="fa fa-github"></i>
 							github
-						</a>
-				</li>
-				<li class="list-inline-item">
-						<a href="https://twitter.com/barkiyan" title="are.na">
-							<i class="fa fa-twitter"></i>
-							twitter
-						</a>
-				</li>
-				<li class="list-inline-item">
-						<a href="https://www.are.na/markiyan-varhola" title="are.na">
-							<i class="fa fa-asterisk"></i>
-							are.na
-						</a>
-				</li>
-				<li class="list-inline-item">
-						<a href="https://www.instagram.com/comfy.boy/" title="instagram">
-							<i class="fa fa-instagram"></i>
-							instagram
 						</a>
 				</li>
 				<li class="list-inline-item">
