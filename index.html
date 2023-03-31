@@ -10,6 +10,7 @@
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 		<meta name="theme-color" content="#000000">
+
 </head>
 <body class="xform" style="visibility: visible;">
 	<div id="content" class="wider" style="padding-left: 0.5px;">
@@ -58,7 +59,10 @@
 
     </div>
     <div id="footer">
-     © 2021  <a href="mailto:mark@verichip.net">mark@verichip.net</a> 
+    © <span id="year"></span>  <a href="mailto:mark@verichip.net">mark@verichip.net</a> 
     </div>
+	<script>
+	document.getElementById("year").innerHTML = new Date().getFullYear();
+	</script>
 </body>
 </html>
