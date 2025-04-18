@@ -17,7 +17,7 @@
 		
 		<div id="primary-container">
 			<div id="home-blurb">
-				<a href="/"><h3>verichip.net <strong class="grn">(v1.3.37)</strong></h3></a>
+				<a href="/"><h3>verichip.net <strong class="grn">(<span id="ip"></span>)</strong></h3></a>
         		<img class="img-fluid" src="verichip.png"/>
 			</div>
 		</div>
@@ -43,6 +43,7 @@
     </div>
 	<script>
 	document.getElementById("year").innerHTML = new Date().getFullYear();
+	document.getElementById("ip").innerHTML = location.host;
 	</script>
 </body>
 </html>
