@@ -1726,6 +1726,7 @@ i.bF {
   width:100%
 }
 
+
 .panel-zaz {
   position: relative;
   float: left;
@@ -1737,7 +1738,7 @@ i.bF {
   background-position: 50% 0;
   background-repeat: no-repeat;
   transition: all .1s ease-in-out;
-  margin:0 24px 3em
+  margin:0 24px 3em;
 }
 
 .panel-zaz:before {
